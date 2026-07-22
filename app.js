@@ -703,6 +703,27 @@ const companies = [
     visaSource: "https://www.anduril.com/open-roles/",
     prep: ["Screen legal restrictions first", "Target unrestricted commercial roles only", "Do not infer eligibility from skill fit"],
   },
+  {
+    id: "bytedance",
+    name: "ByteDance / TikTok",
+    category: "Consumer & Frontier AI",
+    description: "Recommendation systems, TikTok products, foundation models, data platforms, monetization, and global infrastructure.",
+    roles: ["Applied AI", "Data", "Software", "Product"],
+    fit: "A strong MSIM target across data, recommendation, AI product, software, and technical program paths. The verified U.S. 2027 listing is research-oriented, so broader Summer 2027 roles still require monitoring.",
+    hubs: "San Jose, Seattle, Los Angeles, New York, and other U.S. offices",
+    source: "https://jobs.bytedance.com/en/mobile/job?offset=0",
+    sourceLabel: "Official ByteDance job search",
+    visa: "Review",
+    visaTitle: "Verify by requisition",
+    visaDetail: "FY2025 DOL data shows historical LCA and PERM activity under ByteDance Inc., TikTok Inc., and TikTok U.S. Data Security Inc. That does not guarantee sponsorship for a specific internship; confirm the employing entity and policy on the exact role.",
+    visaSource: "https://jobs.bytedance.com/en/mobile/students/trends?index=1",
+    prep: ["Search both ByteDance and TikTok portals", "Prioritize data/recommendation and AI product work", "Confirm Summer dates and employing entity before applying"],
+    cycleStatus: "Confirmed2027",
+    cycleTitle: "2027 U.S. role found",
+    cycleDetail: "Official ByteDance search currently lists a San Jose Student Researcher internship titled “Multimodal Interaction and World Model - Seed — 2027 Start (BS/MS).” The title confirms a 2027-start U.S. internship, but does not by itself prove a Summer 2027 start date.",
+    cycleSource: "https://jobs.bytedance.com/en/mobile/job?offset=0",
+    checkedOn: "2026-07-22",
+  },
 ];
 
 const sources = [
@@ -777,7 +798,14 @@ const coreTargets = new Set([
 ]);
 const reachTargets = new Set([
   "anthropic", "openai", "cohere", "scale", "palantir", "stripe", "figma",
-  "roblox", "xai", "perplexity", "coreweave", "qualcomm",
+  "roblox", "xai", "perplexity", "coreweave", "qualcomm", "bytedance",
+]);
+const verifiedProgramTargets = new Set([
+  "openai", "meta", "microsoft", "amazon", "apple", "nvidia", "databricks",
+  "snowflake", "salesforce", "adobe", "oracle", "cisco", "servicenow", "uber",
+  "doordash", "linkedin", "cloudflare", "amd", "intel", "qualcomm", "ibm",
+  "tesla", "bloomberg", "atlassian", "roblox", "datadog", "intuit",
+  "pinterest", "workday",
 ]);
 
 companies.forEach((company) => {
@@ -786,13 +814,25 @@ companies.forEach((company) => {
     : reachTargets.has(company.id)
       ? "Reach"
       : "Monitor";
-  company.cycle = "Watchlist";
+  if (!company.cycleStatus) {
+    const programVerified = verifiedProgramTargets.has(company.id);
+    company.cycleStatus = programVerified ? "ProgramVerified" : "Unconfirmed";
+    company.cycleTitle = programVerified
+      ? "Intern program; 2027 unconfirmed"
+      : "No verified 2027 internship";
+    company.cycleDetail = programVerified
+      ? "An official student, internship, or early-career program is available, but this review did not find an explicit U.S. Summer 2027 requisition."
+      : "The official recruiting surface is valid, but this review did not find an explicit U.S. Summer 2027 internship requisition or a standing student program."
+    company.cycleSource = company.source;
+    company.checkedOn = "2026-07-22";
+  }
 });
 
 const state = {
   role: "All",
   visa: "All",
   priority: "All",
+  cycle: "All",
   query: "",
   saved: new Set(JSON.parse(localStorage.getItem("fieldwork27-saved") || "[]")),
 };
@@ -837,6 +877,10 @@ function priorityClass(priority) {
   return priority.toLowerCase();
 }
 
+function cycleClass(status) {
+  return status.toLowerCase();
+}
+
 function companyCard(company) {
   const isSaved = state.saved.has(company.id);
   const roleTags = company.roles
@@ -853,7 +897,7 @@ function companyCard(company) {
       </div>
       <div class="company-status-row">
         <span class="priority-badge ${priorityClass(company.priority)}">${company.priority}</span>
-        <span class="cycle-badge"><i></i> 2027 watchlist</span>
+        <span class="cycle-badge ${cycleClass(company.cycleStatus)}"><i></i>${company.cycleTitle}</span>
       </div>
       <h3 class="company-name">${company.name}</h3>
       <p class="company-description">${company.description}</p>
@@ -877,6 +921,7 @@ function filteredCompanies() {
     const roleMatches = state.role === "All" || company.roles.includes(state.role);
     const visaMatches = state.visa === "All" || company.visa === state.visa;
     const priorityMatches = state.priority === "All" || company.priority === state.priority;
+    const cycleMatches = state.cycle === "All" || company.cycleStatus === state.cycle;
     const haystack = [
       company.name,
       company.category,
@@ -886,7 +931,7 @@ function filteredCompanies() {
     ]
       .join(" ")
       .toLowerCase();
-    return roleMatches && visaMatches && priorityMatches && (!query || haystack.includes(query));
+    return roleMatches && visaMatches && priorityMatches && cycleMatches && (!query || haystack.includes(query));
   });
 }
 
@@ -966,7 +1011,8 @@ function openCompanyDetails(id) {
     <p class="dialog-description">${company.description}</p>
     <div class="dialog-detail-grid">
       <div><span class="detail-label">MSIM role fit</span><strong>${company.roles.join(" · ")}</strong></div>
-      <div><span class="detail-label">Target priority</span><strong>${company.priority} · 2027 ${company.cycle}</strong></div>
+      <div><span class="detail-label">Target priority</span><strong>${company.priority}</strong></div>
+      <div><span class="detail-label">2027 recruiting status</span><strong>${company.cycleTitle}</strong></div>
       <div><span class="detail-label">Immigration status</span><strong>${company.visaTitle}</strong></div>
       <div><span class="detail-label">Likely hubs</span><strong>${company.hubs}</strong></div>
       <div><span class="detail-label">Source standard</span><strong>Official career surface + exact posting</strong></div>
@@ -974,6 +1020,11 @@ function openCompanyDetails(id) {
     <section class="dialog-section">
       <h3>Why it belongs on the list</h3>
       <p>${company.fit}</p>
+    </section>
+    <section class="dialog-section">
+      <h3>2027 official-posting check</h3>
+      <p>${company.cycleDetail}</p>
+      <p class="cycle-audit-note">Checked ${company.checkedOn}. <a href="${company.cycleSource}" target="_blank" rel="noreferrer">Open official evidence ↗</a></p>
     </section>
     <section class="dialog-section">
       <h3>Work authorization / future sponsorship</h3>
@@ -1020,6 +1071,11 @@ document.querySelector("#priorityFilters").addEventListener("click", (event) => 
   if (button) setActiveChip(button.dataset.filter, button.dataset.value);
 });
 
+document.querySelector("#cycleFilters").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-filter]");
+  if (button) setActiveChip(button.dataset.filter, button.dataset.value);
+});
+
 companySearch.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderCompanies();
@@ -1044,6 +1100,7 @@ document.querySelector("#clearFilters").addEventListener("click", () => {
   state.role = "All";
   state.visa = "All";
   state.priority = "All";
+  state.cycle = "All";
   state.query = "";
   companySearch.value = "";
   document.querySelectorAll(".filter-chip").forEach((button) => {
@@ -1063,6 +1120,7 @@ savedButton.addEventListener("click", () => {
   state.role = "All";
   state.visa = "All";
   state.priority = "All";
+  state.cycle = "All";
   companySearch.value = "";
   companyGrid.innerHTML = companies
     .filter((company) => state.saved.has(company.id))

@@ -189,6 +189,28 @@ window.DOL_FY2025_SNAPSHOT = {
       },
       "permTotal": 236
     },
+    "bytedance": {
+      "lcaCertified": 486,
+      "lcaStatuses": {
+        "Certified": 486,
+        "Certified - Withdrawn": 1,
+        "Withdrawn": 5
+      },
+      "lcaTotal": 492,
+      "matchedEntities": [
+        "BYTEDANCE INC.",
+        "ByteDance Inc.",
+        "TikTok Inc.",
+        "TikTok U.S. Data Security Inc."
+      ],
+      "permCertified": 191,
+      "permStatuses": {
+        "Certified": 191,
+        "Certified - Expired": 26,
+        "Withdrawn": 157
+      },
+      "permTotal": 374
+    },
     "cisco": {
       "lcaCertified": 196,
       "lcaStatuses": {

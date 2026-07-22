@@ -16,7 +16,7 @@ Then open <http://localhost:4173>.
 
 ## What is included
 
-- 44 U.S. technology / AI target employers across frontier AI, Big Tech, cloud,
+- 45 U.S. technology / AI target employers across frontier AI, Big Tech, cloud,
   semiconductors, data platforms, enterprise software, fintech, and consumer
   products. Every card links to an official career or university-recruiting page.
 - Role-lane filtering for Applied AI, Data, Software, and Product.
@@ -24,8 +24,13 @@ Then open <http://localhost:4173>.
   - **Core**: strong role fit plus an actionable student/early-career path.
   - **Reach**: high technical bar or less predictable internship availability.
   - **Monitor**: useful adjacent target, restricted roles, or uncertain cycle.
-- A recruiting-cycle label that treats most Summer 2027 U.S. technical roles as
-  a watchlist until an official requisition opens.
+- A three-level recruiting-cycle label, reviewed against official sources:
+  - **2027 role found**: an official U.S. internship title/detail explicitly
+    references 2027.
+  - **Program only**: an official student/intern program exists, but no explicit
+    U.S. Summer 2027 requisition was found.
+  - **2027 unconfirmed**: the company is a target, but neither an explicit 2027
+    internship nor a standing official intern program was verified.
 - A conservative immigration-evidence model:
   - **Explicit policy**: only where the company’s own careers material explicitly
     says it sponsors visas / green cards for eligible roles.
@@ -35,6 +40,10 @@ Then open <http://localhost:4173>.
     official policy.
 - UIUC MSIM/STEM and CPT sources, USCIS CPT/STEM OPT/H-1B sources, and
   reproducible DOL LCA/PERM evidence.
+- ByteDance/TikTok is included as one employer group. The official ByteDance job
+  search currently shows a San Jose `Student Researcher ... 2027 Start (BS/MS)`
+  internship. That proves a U.S. 2027-start internship exists, but not that its
+  start date is Summer 2027.
 
 ## Source methodology
 
@@ -97,6 +106,9 @@ Company-specific official recruiting URLs live in `app.js`.
 
 - 2027 requisitions are not universally open yet. A company in the target list is
   not a claim that a Summer 2027 opening exists today.
+- Recruiting status was rechecked on 2026-07-22. Unless the official title or job
+  detail explicitly says 2027, the site does not mark the employer as having a
+  2027 opening.
 - The candidate baseline assumes Fall 2026 entry, completion of a full academic
   year before Summer 2027, and continued enrollment after the internship. UIUC
   ISSS makes the actual CPT determination.

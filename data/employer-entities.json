@@ -53,5 +53,10 @@
   "xai": ["X.AI Corp.", "X.AI LLC"],
   "perplexity": ["Perplexity AI, Inc."],
   "coreweave": ["CoreWeave, Inc."],
-  "anduril": ["Anduril Industries, Inc."]
+  "anduril": ["Anduril Industries, Inc."],
+  "bytedance": [
+    "ByteDance Inc.",
+    "TikTok Inc.",
+    "TikTok U.S. Data Security Inc."
+  ]
 }
