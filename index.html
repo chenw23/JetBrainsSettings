@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A source-first 2027 US summer internship search system for a UIUC MSIM candidate."
+    />
+    <title>Fieldwork 27 — 2027 US Tech Internship Intelligence</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23025b55'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='22' font-weight='700' fill='%23c6e85f'%3EF27%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:opsz,wght@5..1200,600;5..1200,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Fieldwork 27 home">
+        <span class="brand-mark">F/27</span>
+        <span>FIELDWORK</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#radar">Target radar</a>
+        <a href="#baseline">UIUC baseline</a>
+        <a href="#playbook">Playbook</a>
+        <a href="#evidence">Sources</a>
+      </nav>
+      <button class="saved-button" id="savedButton" type="button">
+        <span class="saved-dot"></span>
+        Saved <span id="savedCount">0</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> APPLICATION INTELLIGENCE / 2027 SUMMER</div>
+          <p class="hero-kicker">For a Fall 2026</p>
+          <h1>UIUC MSIM student<br />targeting <em>Summer ’27.</em></h1>
+          <p class="hero-summary">
+            A source-first application workspace for U.S. technology internships. Compare
+            role fit, recruiting-cycle status, CPT constraints, and employer immigration
+            evidence without treating historical filings as promises.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#radar">Explore target list <span>↘</span></a>
+            <button class="button button-quiet" id="openMethodButton" type="button">
+              How we verify
+            </button>
+          </div>
+          <div class="hero-footnote">
+            <span class="pulse"></span>
+            2027 listings are dynamic. Every company card links to its official recruiting surface.
+          </div>
+        </div>
+
+        <aside class="strategy-card">
+          <a
+            class="strategy-photo"
+            href="https://ischool.illinois.edu/academics/graduate/ms-information-management"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open the official UIUC MSIM program page"
+          >
+            <img
+              src="assets/uiuc-msim-classroom.jpg"
+              alt="UIUC MSIM students speaking with an instructor in a classroom"
+            />
+            <span>Official UIUC iSchool image ↗</span>
+          </a>
+          <div class="strategy-card-top">
+            <span class="label">UIUC / MSIM 2026 ENTRY</span>
+            <span class="strategy-status">SOURCE CHECKED</span>
+          </div>
+          <div class="strategy-grid">
+            <div>
+              <span class="metric-number">4</span>
+              <span class="metric-label">role lanes</span>
+            </div>
+            <div>
+              <span class="metric-number" data-company-total>44</span>
+              <span class="metric-label">target employers</span>
+            </div>
+            <div>
+              <span class="metric-number">3</span>
+              <span class="metric-label">immigration layers</span>
+            </div>
+          </div>
+          <p>
+            Best-fit lanes: applied AI, data and analytics, software/platform, and technical
+            product/program work. Frontier research is a reach lane unless the portfolio shows
+            research-grade depth.
+          </p>
+        </aside>
+      </section>
+
+      <section class="signal-strip" aria-label="Key data points">
+        <div><span class="signal-label">PROGRAM</span><strong>40-credit STEM</strong><small>UIUC MSIM, usually 18–24 months</small></div>
+        <div><span class="signal-label">2027 SUMMER</span><strong>CPT-dependent</strong><small>Full academic year + UIUC authorization</small></div>
+        <div><span class="signal-label">CURRENT CYCLE</span><strong>Mostly watchlist</strong><small>2027 U.S. technical postings are not broadly open</small></div>
+        <div><span class="signal-label">LONG-TERM</span><strong>LCA ≠ H-1B approval</strong><small>PERM ≠ green-card guarantee</small></div>
+      </section>
+
+      <section class="baseline-section" id="baseline">
+        <div class="baseline-head">
+          <div>
+            <div class="eyebrow"><span></span> UIUC 2026 BASELINE</div>
+            <h2>Know what is true<br /><em>before</em> you apply.</h2>
+          </div>
+          <p>
+            This site assumes Fall 2026 entry into the on-campus UIUC MSIM and continued
+            enrollment after Summer 2027. Confirm your own I-20 dates and CPT eligibility
+            with UIUC ISSS before accepting employment.
+          </p>
+        </div>
+        <div class="baseline-grid">
+          <article>
+            <span class="baseline-no">01</span>
+            <strong>Program fit</strong>
+            <p>MSIM combines information modeling, statistics, sociotechnical systems, data analytics, and human-centered work.</p>
+            <a href="https://ischool.illinois.edu/academics/graduate/ms-information-management" target="_blank" rel="noreferrer">Official program ↗</a>
+          </article>
+          <article>
+            <span class="baseline-no">02</span>
+            <strong>Summer authorization</strong>
+            <p>CPT normally requires a full academic year, a qualifying curricular connection, course registration, and authorization on the I-20 before work starts.</p>
+            <a href="https://isss.illinois.edu/students/employment/f1-cpt/" target="_blank" rel="noreferrer">UIUC CPT rules ↗</a>
+          </article>
+          <article>
+            <span class="baseline-no">03</span>
+            <strong>After graduation</strong>
+            <p>The program is STEM-designated, but STEM OPT still requires an eligible degree, a related role, and an E-Verify employer that signs Form I-983.</p>
+            <a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt" target="_blank" rel="noreferrer">USCIS STEM OPT ↗</a>
+          </article>
+          <article>
+            <span class="baseline-no">04</span>
+            <strong>Employer sponsorship</strong>
+            <p>CPT, OPT, H-1B, and employer-sponsored permanent residence are separate decisions. Ask about each one explicitly.</p>
+            <a href="https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations" target="_blank" rel="noreferrer">USCIS H-1B ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="radar-section" id="radar">
+        <div class="section-intro">
+          <div>
+            <div class="eyebrow"><span></span> TARGET RADAR</div>
+            <h2>Apply wide.<br /><em>Prioritize</em> deliberately.</h2>
+          </div>
+          <p>
+            Forty-four U.S. technology employers with official recruiting surfaces and reviewed
+            FY2025 DOL legal-entity matches. A target card is not a claim that a Summer 2027
+            requisition is open today.
+          </p>
+        </div>
+
+        <div class="filter-panel">
+          <label class="search-field">
+            <span class="search-icon">⌕</span>
+            <input id="companySearch" type="search" placeholder="Search company, role, or city" autocomplete="off" />
+          </label>
+          <div class="filter-group" aria-label="Role filters">
+            <span class="filter-label">ROLE LANE</span>
+            <div class="filter-row" id="roleFilters">
+              <button class="filter-chip active" data-filter="role" data-value="All" type="button">All</button>
+              <button class="filter-chip" data-filter="role" data-value="Applied AI" type="button">Applied AI</button>
+              <button class="filter-chip" data-filter="role" data-value="Data" type="button">Data</button>
+              <button class="filter-chip" data-filter="role" data-value="Software" type="button">Software</button>
+              <button class="filter-chip" data-filter="role" data-value="Product" type="button">Product</button>
+            </div>
+          </div>
+          <div class="filter-group filter-group-bottom" aria-label="Visa filters">
+            <span class="filter-label">IMMIGRATION EVIDENCE</span>
+            <div class="filter-row" id="visaFilters">
+              <button class="filter-chip active" data-filter="visa" data-value="All" type="button">All</button>
+              <button class="filter-chip" data-filter="visa" data-value="Explicit" type="button">Explicit policy</button>
+              <button class="filter-chip" data-filter="visa" data-value="Posting" type="button">Posting-level</button>
+              <button class="filter-chip" data-filter="visa" data-value="Review" type="button">Needs review</button>
+            </div>
+          </div>
+          <div class="filter-group filter-group-bottom" aria-label="Priority filters">
+            <span class="filter-label">MSIM PRIORITY</span>
+            <div class="filter-row" id="priorityFilters">
+              <button class="filter-chip active" data-filter="priority" data-value="All" type="button">All</button>
+              <button class="filter-chip" data-filter="priority" data-value="Core" type="button">Core targets</button>
+              <button class="filter-chip" data-filter="priority" data-value="Reach" type="button">Reach</button>
+              <button class="filter-chip" data-filter="priority" data-value="Monitor" type="button">Monitor</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="radar-meta">
+          <span id="resultsCount">44 companies</span>
+          <span class="meta-divider"></span>
+          <button id="clearFilters" type="button">Reset filters</button>
+          <span class="radar-legend"><i></i> Official career source linked</span>
+        </div>
+        <div class="company-grid" id="companyGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="focus-section">
+        <div class="focus-card focus-card-dark">
+          <span class="section-index">01 / YOUR ADVANTAGE</span>
+          <h3>Make the MSIM<br />degree <em>legible.</em></h3>
+          <p>
+            Your strongest signal is the bridge: model data well, understand a user or business
+            workflow, and ship a usable technical outcome. Recruit for execution, not just coursework.
+          </p>
+          <ul>
+            <li><span>01</span> Data modelling + experimentation</li>
+            <li><span>02</span> Python / SQL / product analytics</li>
+            <li><span>03</span> Applied AI evaluation or tooling</li>
+            <li><span>04</span> A narrative that connects all three</li>
+          </ul>
+        </div>
+        <div class="focus-card focus-card-light">
+          <span class="section-index">02 / ROLE ROUTING</span>
+          <div class="route-list">
+            <article>
+              <span class="route-number">A</span>
+              <div><strong>Applied AI &amp; Solutions</strong><p>AI engineering, evaluation, developer experience, forward deployment.</p></div>
+              <span class="route-tag">HIGH FIT</span>
+            </article>
+            <article>
+              <span class="route-number">B</span>
+              <div><strong>Data &amp; Analytics</strong><p>Data science, analytics engineering, BI, growth/product insights.</p></div>
+              <span class="route-tag">HIGH FIT</span>
+            </article>
+            <article>
+              <span class="route-number">C</span>
+              <div><strong>Software &amp; Platform</strong><p>SWE, data platform, infrastructure, developer tools.</p></div>
+              <span class="route-tag">BUILD PROOF</span>
+            </article>
+            <article>
+              <span class="route-number">D</span>
+              <div><strong>Product &amp; TPM</strong><p>Technical product, program management, AI product operations.</p></div>
+              <span class="route-tag">PORTFOLIO</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="playbook-section" id="playbook">
+        <div class="section-intro">
+          <div>
+            <div class="eyebrow"><span></span> APPLICATION PLAYBOOK</div>
+            <h2>Run the search<br />like a <em>system.</em></h2>
+          </div>
+          <p>
+            Convert each application into reusable evidence: one target-specific resume version,
+            one clear work-authorization answer, and one project story that demonstrates the role
+            lane.
+          </p>
+        </div>
+        <div class="timeline">
+          <article>
+            <span class="timeline-window">NOW → AUG</span>
+            <h3>Foundation</h3>
+            <p>Build two high-signal projects. Put the code, decision log, evaluation, and demo in public form.</p>
+            <ul><li>Resume baseline</li><li>LinkedIn + GitHub</li><li>Target list v1</li></ul>
+          </article>
+          <article>
+            <span class="timeline-window">AUG → OCT</span>
+            <h3>Early cycle</h3>
+            <p>Many large-company technical internship processes appear during this period. Check official portals weekly.</p>
+            <ul><li>Apply in batches</li><li>Referrals</li><li>Interview drills</li></ul>
+          </article>
+          <article>
+            <span class="timeline-window">NOV → JAN</span>
+            <h3>Depth</h3>
+            <p>Close skills gaps, follow up responsibly, and broaden to platform, data, and product-adjacent programs.</p>
+            <ul><li>Case studies</li><li>SQL / coding reps</li><li>Visa confirmation</li></ul>
+          </article>
+          <article>
+            <span class="timeline-window">FEB → MAY</span>
+            <h3>Late cycle</h3>
+            <p>Watch backfills and smaller programs. Align offer timing, CPT authorization, and relocation constraints early.</p>
+            <ul><li>CPT paperwork</li><li>Offer comparison</li><li>Network cadence</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="evidence-section" id="evidence">
+        <div class="evidence-head">
+          <div>
+            <div class="eyebrow"><span></span> EVIDENCE, NOT VIBES</div>
+            <h2>What each label<br /><em>actually</em> means.</h2>
+          </div>
+          <p>
+            Immigration language is intentionally conservative. A historical filing, an employer’s
+            size, or a forum post does not prove that a particular internship or future offer will
+            sponsor you.
+          </p>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-rule">
+            <span class="rule-no">01</span>
+            <h3>Official company policy</h3>
+            <p>Only an employer’s own careers material can support an “explicit policy” label. In this list, Anthropic publicly states it sponsors visas and green cards for eligible roles.</p>
+          </article>
+          <article class="evidence-rule">
+            <span class="rule-no">02</span>
+            <h3>Posting-level authorization</h3>
+            <p>Most employers decide by requisition, country, export-control needs, and timing. Read the exact listing; some internship listings explicitly do not sponsor.</p>
+          </article>
+          <article class="evidence-rule">
+            <span class="rule-no">03</span>
+            <h3>Federal disclosure data</h3>
+            <p>DOL LCA and PERM disclosure files record employer-submitted cases and determinations. This site uses a reviewed exact-entity allowlist and publishes the extraction script—not approvals, promises, or a substitute for a written offer.</p>
+          </article>
+        </div>
+        <div class="official-sources" id="sourceLibrary"></div>
+      </section>
+
+      <section class="closing-section">
+        <div>
+          <span class="eyebrow"><span></span> YOUR NEXT MOVE</span>
+          <h2>Start with <em>ten.</em><br />Finish with proof.</h2>
+        </div>
+        <div class="closing-copy">
+          <p>Save a focused first ten, open their official career pages, and use each role to sharpen your portfolio. The goal is not a perfect list — it is a weekly operating rhythm.</p>
+          <a class="button button-primary" href="#radar">Build my shortlist <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="brand"><span class="brand-mark">F/27</span><span>FIELDWORK</span></div>
+      <p>Prepared as an information and application-planning tool. Not legal or immigration advice.</p>
+      <button class="footer-source-link" type="button" id="footerSourceButton">Open source library ↗</button>
+    </footer>
+
+    <dialog class="company-dialog" id="companyDialog">
+      <div class="dialog-shell">
+        <button class="dialog-close" id="dialogClose" type="button" aria-label="Close details">×</button>
+        <div id="dialogContent"></div>
+      </div>
+    </dialog>
+
+    <dialog class="method-dialog" id="methodDialog">
+      <div class="method-shell">
+        <button class="dialog-close" id="methodClose" type="button" aria-label="Close methodology">×</button>
+        <span class="eyebrow"><span></span> RESEARCH STANDARD</span>
+        <h2>Designed to make uncertainty visible.</h2>
+        <ol>
+          <li><strong>First-party recruiting source.</strong> Every company card leads to the company’s own career or university-recruiting page.</li>
+          <li><strong>Federal source for immigration mechanics.</strong> USCIS explains the H-1B process; DOL publishes LCA and PERM disclosure data. This site uses exact legal-entity matches from FY2025 only as historical evidence.</li>
+          <li><strong>University source for student work authorization.</strong> UIUC ISSS controls CPT/OPT guidance for F-1 students.</li>
+          <li><strong>No inferred sponsorship.</strong> “Posting-level” means verify the specific job and get confirmation from recruiting before relying on a pathway.</li>
+        </ol>
+        <a class="button button-primary" href="#evidence" id="methodSourcesLink">Read the sources <span>↘</span></a>
+      </div>
+    </dialog>
+
+    <script src="data/dol-fy2025-snapshot.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,811 @@
+window.DOL_FY2025_SNAPSHOT = {
+  "companies": {
+    "adobe": {
+      "lcaCertified": 136,
+      "lcaStatuses": {
+        "Certified": 136
+      },
+      "lcaTotal": 136,
+      "matchedEntities": [
+        "ADOBE INC.",
+        "Adobe Inc.",
+        "Adobe, Inc."
+      ],
+      "permCertified": 350,
+      "permStatuses": {
+        "Certified": 350,
+        "Certified - Expired": 113,
+        "Denied": 1,
+        "Withdrawn": 2
+      },
+      "permTotal": 466
+    },
+    "airbnb": {
+      "lcaCertified": 50,
+      "lcaStatuses": {
+        "Certified": 50,
+        "Withdrawn": 1
+      },
+      "lcaTotal": 51,
+      "matchedEntities": [
+        "AIRBNB, INC.",
+        "Airbnb, Inc."
+      ],
+      "permCertified": 24,
+      "permStatuses": {
+        "Certified": 24,
+        "Certified - Expired": 21,
+        "Withdrawn": 3
+      },
+      "permTotal": 48
+    },
+    "amazon": {
+      "lcaCertified": 3941,
+      "lcaStatuses": {
+        "Certified": 3941,
+        "Certified - Withdrawn": 4,
+        "Denied": 7,
+        "Withdrawn": 8
+      },
+      "lcaTotal": 3960,
+      "matchedEntities": [
+        "AMAZON ADVERTISING LLC",
+        "AMAZON DATA SERVICES, INC.",
+        "AMAZON DEVELOPMENT CENTER U.S., INC.",
+        "AMAZON WEB SERVICES, INC.",
+        "AMAZON.COM SERVICES LLC",
+        "Amazon Advertising LLC",
+        "Amazon Data Services Inc.",
+        "Amazon Data Services, Inc",
+        "Amazon Data Services, Inc.",
+        "Amazon Development Center U.S. Inc.",
+        "Amazon Development Center U.S., Inc.",
+        "Amazon Web Services, Inc",
+        "Amazon Web Services, Inc.",
+        "Amazon.Com Services Llc",
+        "Amazon.com Services LLC"
+      ],
+      "permCertified": 1,
+      "permStatuses": {
+        "Certified": 1,
+        "Withdrawn": 14
+      },
+      "permTotal": 15
+    },
+    "amd": {
+      "lcaCertified": 140,
+      "lcaStatuses": {
+        "Certified": 140,
+        "Withdrawn": 1
+      },
+      "lcaTotal": 141,
+      "matchedEntities": [
+        "AMD Design LLC",
+        "Advanced Micro Devices, Inc."
+      ],
+      "permCertified": 129,
+      "permStatuses": {
+        "Certified": 129,
+        "Certified - Expired": 126,
+        "Denied": 2,
+        "Withdrawn": 3
+      },
+      "permTotal": 260
+    },
+    "anduril": {
+      "lcaCertified": 0,
+      "lcaStatuses": {},
+      "lcaTotal": 0,
+      "matchedEntities": [],
+      "permCertified": 0,
+      "permStatuses": {},
+      "permTotal": 0
+    },
+    "anthropic": {
+      "lcaCertified": 52,
+      "lcaStatuses": {
+        "Certified": 52
+      },
+      "lcaTotal": 52,
+      "matchedEntities": [
+        "Anthropic, PBC"
+      ],
+      "permCertified": 0,
+      "permStatuses": {},
+      "permTotal": 0
+    },
+    "apple": {
+      "lcaCertified": 1480,
+      "lcaStatuses": {
+        "Certified": 1480,
+        "Withdrawn": 1
+      },
+      "lcaTotal": 1481,
+      "matchedEntities": [
+        "APPLE INC.",
+        "Apple Inc."
+      ],
+      "permCertified": 31,
+      "permStatuses": {
+        "Certified": 31,
+        "Certified - Expired": 1193,
+        "Denied": 4,
+        "Withdrawn": 12
+      },
+      "permTotal": 1240
+    },
+    "atlassian": {
+      "lcaCertified": 92,
+      "lcaStatuses": {
+        "Certified": 92
+      },
+      "lcaTotal": 92,
+      "matchedEntities": [
+        "Atlassian US Inc",
+        "Atlassian US, Inc",
+        "Atlassian US, Inc."
+      ],
+      "permCertified": 36,
+      "permStatuses": {
+        "Certified": 36,
+        "Certified - Expired": 39,
+        "Withdrawn": 4
+      },
+      "permTotal": 79
+    },
+    "block": {
+      "lcaCertified": 35,
+      "lcaStatuses": {
+        "Certified": 35
+      },
+      "lcaTotal": 35,
+      "matchedEntities": [
+        "Block Inc.",
+        "Block, Inc."
+      ],
+      "permCertified": 43,
+      "permStatuses": {
+        "Certified": 43,
+        "Certified - Expired": 31,
+        "Withdrawn": 18
+      },
+      "permTotal": 92
+    },
+    "bloomberg": {
+      "lcaCertified": 133,
+      "lcaStatuses": {
+        "Certified": 133,
+        "Withdrawn": 1
+      },
+      "lcaTotal": 134,
+      "matchedEntities": [
+        "Bloomberg L.P."
+      ],
+      "permCertified": 199,
+      "permStatuses": {
+        "Certified": 199,
+        "Certified - Expired": 35,
+        "Withdrawn": 2
+      },
+      "permTotal": 236
+    },
+    "cisco": {
+      "lcaCertified": 196,
+      "lcaStatuses": {
+        "Certified": 196,
+        "Withdrawn": 1
+      },
+      "lcaTotal": 197,
+      "matchedEntities": [
+        "Cisco Systems, Inc."
+      ],
+      "permCertified": 162,
+      "permStatuses": {
+        "Certified": 162,
+        "Certified - Expired": 133,
+        "Denied": 1,
+        "Withdrawn": 85
+      },
+      "permTotal": 381
+    },
+    "cloudflare": {
+      "lcaCertified": 25,
+      "lcaStatuses": {
+        "Certified": 25,
+        "Certified - Withdrawn": 2
+      },
+      "lcaTotal": 27,
+      "matchedEntities": [
+        "CLOUDFLARE, INC.",
+        "Cloudflare, Inc."
+      ],
+      "permCertified": 21,
+      "permStatuses": {
+        "Certified": 21,
+        "Certified - Expired": 17
+      },
+      "permTotal": 38
+    },
+    "cohere": {
+      "lcaCertified": 1,
+      "lcaStatuses": {
+        "Certified": 1
+      },
+      "lcaTotal": 1,
+      "matchedEntities": [
+        "Cohere US, Inc."
+      ],
+      "permCertified": 0,
+      "permStatuses": {
+        "Certified - Expired": 1
+      },
+      "permTotal": 1
+    },
+    "coreweave": {
+      "lcaCertified": 19,
+      "lcaStatuses": {
+        "Certified": 19
+      },
+      "lcaTotal": 19,
+      "matchedEntities": [
+        "CoreWeave, Inc."
+      ],
+      "permCertified": 0,
+      "permStatuses": {
+        "Withdrawn": 1
+      },
+      "permTotal": 1
+    },
+    "databricks": {
+      "lcaCertified": 68,
+      "lcaStatuses": {
+        "Certified": 68
+      },
+      "lcaTotal": 68,
+      "matchedEntities": [
+        "Databricks, Inc."
+      ],
+      "permCertified": 69,
+      "permStatuses": {
+        "Certified": 69,
+        "Certified - Expired": 44,
+        "Denied": 1,
+        "Withdrawn": 5
+      },
+      "permTotal": 119
+    },
+    "datadog": {
+      "lcaCertified": 25,
+      "lcaStatuses": {
+        "Certified": 25
+      },
+      "lcaTotal": 25,
+      "matchedEntities": [
+        "Datadog, Inc."
+      ],
+      "permCertified": 8,
+      "permStatuses": {
+        "Certified": 8,
+        "Certified - Expired": 3
+      },
+      "permTotal": 11
+    },
+    "doordash": {
+      "lcaCertified": 108,
+      "lcaStatuses": {
+        "Certified": 108
+      },
+      "lcaTotal": 108,
+      "matchedEntities": [
+        "DoorDash, Inc."
+      ],
+      "permCertified": 74,
+      "permStatuses": {
+        "Certified": 74,
+        "Certified - Expired": 105,
+        "Denied": 4,
+        "Withdrawn": 16
+      },
+      "permTotal": 199
+    },
+    "figma": {
+      "lcaCertified": 9,
+      "lcaStatuses": {
+        "Certified": 9
+      },
+      "lcaTotal": 9,
+      "matchedEntities": [
+        "Figma, Inc."
+      ],
+      "permCertified": 15,
+      "permStatuses": {
+        "Certified": 15,
+        "Certified - Expired": 3,
+        "Withdrawn": 1
+      },
+      "permTotal": 19
+    },
+    "google": {
+      "lcaCertified": 941,
+      "lcaStatuses": {
+        "Certified": 941,
+        "Certified - Withdrawn": 6,
+        "Withdrawn": 2
+      },
+      "lcaTotal": 949,
+      "matchedEntities": [
+        "Google LLC"
+      ],
+      "permCertified": 0,
+      "permStatuses": {},
+      "permTotal": 0
+    },
+    "ibm": {
+      "lcaCertified": 418,
+      "lcaStatuses": {
+        "Certified": 418,
+        "Certified - Withdrawn": 45,
+        "Withdrawn": 3
+      },
+      "lcaTotal": 466,
+      "matchedEntities": [
+        "IBM  Corporation",
+        "IBM Corporation"
+      ],
+      "permCertified": 153,
+      "permStatuses": {
+        "Certified": 153,
+        "Certified - Expired": 150,
+        "Withdrawn": 1
+      },
+      "permTotal": 304
+    },
+    "intel": {
+      "lcaCertified": 282,
+      "lcaStatuses": {
+        "Certified": 282
+      },
+      "lcaTotal": 282,
+      "matchedEntities": [
+        "Intel Corporation"
+      ],
+      "permCertified": 513,
+      "permStatuses": {
+        "Certified": 513,
+        "Certified - Expired": 423,
+        "Denied": 1,
+        "Withdrawn": 96
+      },
+      "permTotal": 1033
+    },
+    "intuit": {
+      "lcaCertified": 117,
+      "lcaStatuses": {
+        "Certified": 117,
+        "Certified - Withdrawn": 2,
+        "Withdrawn": 2
+      },
+      "lcaTotal": 121,
+      "matchedEntities": [
+        "INTUIT INC.",
+        "Intuit Inc.",
+        "Intuit, Inc."
+      ],
+      "permCertified": 172,
+      "permStatuses": {
+        "Certified": 172,
+        "Certified - Expired": 138,
+        "Withdrawn": 7
+      },
+      "permTotal": 317
+    },
+    "linkedin": {
+      "lcaCertified": 107,
+      "lcaStatuses": {
+        "Certified": 107
+      },
+      "lcaTotal": 107,
+      "matchedEntities": [
+        "LINKEDIN CORPORATION",
+        "LinkedIn Corporation"
+      ],
+      "permCertified": 182,
+      "permStatuses": {
+        "Certified": 182,
+        "Certified - Expired": 189,
+        "Denied": 2,
+        "Withdrawn": 50
+      },
+      "permTotal": 423
+    },
+    "meta": {
+      "lcaCertified": 910,
+      "lcaStatuses": {
+        "Certified": 910
+      },
+      "lcaTotal": 910,
+      "matchedEntities": [
+        "Meta Platforms, Inc",
+        "Meta Platforms, Inc."
+      ],
+      "permCertified": 355,
+      "permStatuses": {
+        "Certified": 355,
+        "Certified - Expired": 30,
+        "Denied": 2,
+        "Withdrawn": 28
+      },
+      "permTotal": 415
+    },
+    "microsoft": {
+      "lcaCertified": 1798,
+      "lcaStatuses": {
+        "Certified": 1798,
+        "Certified - Withdrawn": 86,
+        "Denied": 1
+      },
+      "lcaTotal": 1885,
+      "matchedEntities": [
+        "MICROSOFT CORPORATION",
+        "Microsoft  Corporation",
+        "Microsoft Corporation"
+      ],
+      "permCertified": 2390,
+      "permStatuses": {
+        "Certified": 2390,
+        "Certified - Expired": 536,
+        "Denied": 9,
+        "Withdrawn": 223
+      },
+      "permTotal": 3158
+    },
+    "mongodb": {
+      "lcaCertified": 37,
+      "lcaStatuses": {
+        "Certified": 37,
+        "Certified - Withdrawn": 8
+      },
+      "lcaTotal": 45,
+      "matchedEntities": [
+        "MONGODB, INC."
+      ],
+      "permCertified": 26,
+      "permStatuses": {
+        "Certified": 26,
+        "Certified - Expired": 11
+      },
+      "permTotal": 37
+    },
+    "nvidia": {
+      "lcaCertified": 466,
+      "lcaStatuses": {
+        "Certified": 466,
+        "Certified - Withdrawn": 4
+      },
+      "lcaTotal": 470,
+      "matchedEntities": [
+        "NVIDIA Corporation"
+      ],
+      "permCertified": 291,
+      "permStatuses": {
+        "Certified": 291,
+        "Certified - Expired": 282,
+        "Withdrawn": 45
+      },
+      "permTotal": 618
+    },
+    "openai": {
+      "lcaCertified": 25,
+      "lcaStatuses": {
+        "Certified": 25,
+        "Certified - Withdrawn": 1
+      },
+      "lcaTotal": 26,
+      "matchedEntities": [
+        "OpenAI OpCo, LLC"
+      ],
+      "permCertified": 1,
+      "permStatuses": {
+        "Certified": 1,
+        "Certified - Expired": 2
+      },
+      "permTotal": 3
+    },
+    "oracle": {
+      "lcaCertified": 266,
+      "lcaStatuses": {
+        "Certified": 266,
+        "Certified - Withdrawn": 1,
+        "Denied": 1,
+        "Withdrawn": 2
+      },
+      "lcaTotal": 270,
+      "matchedEntities": [
+        "ORACLE AMERICA, INC.",
+        "Oracle America, Inc."
+      ],
+      "permCertified": 690,
+      "permStatuses": {
+        "Certified": 690,
+        "Certified - Expired": 500,
+        "Denied": 1,
+        "Withdrawn": 31
+      },
+      "permTotal": 1222
+    },
+    "palantir": {
+      "lcaCertified": 16,
+      "lcaStatuses": {
+        "Certified": 16
+      },
+      "lcaTotal": 16,
+      "matchedEntities": [
+        "PALANTIR TECHNOLOGIES INC.",
+        "Palantir Technologies, Inc."
+      ],
+      "permCertified": 4,
+      "permStatuses": {
+        "Certified": 4,
+        "Certified - Expired": 13
+      },
+      "permTotal": 17
+    },
+    "perplexity": {
+      "lcaCertified": 2,
+      "lcaStatuses": {
+        "Certified": 2
+      },
+      "lcaTotal": 2,
+      "matchedEntities": [
+        "Perplexity AI, Inc."
+      ],
+      "permCertified": 0,
+      "permStatuses": {},
+      "permTotal": 0
+    },
+    "pinterest": {
+      "lcaCertified": 69,
+      "lcaStatuses": {
+        "Certified": 69,
+        "Certified - Withdrawn": 10,
+        "Withdrawn": 2
+      },
+      "lcaTotal": 81,
+      "matchedEntities": [
+        "Pinterest, Inc."
+      ],
+      "permCertified": 65,
+      "permStatuses": {
+        "Certified": 65,
+        "Certified - Expired": 50,
+        "Withdrawn": 1
+      },
+      "permTotal": 116
+    },
+    "qualcomm": {
+      "lcaCertified": 284,
+      "lcaStatuses": {
+        "Certified": 284,
+        "Withdrawn": 1
+      },
+      "lcaTotal": 285,
+      "matchedEntities": [
+        "Qualcomm Atheros, Inc.",
+        "Qualcomm Incorporated",
+        "Qualcomm Innovation Center, Inc.",
+        "Qualcomm Technologies, Inc."
+      ],
+      "permCertified": 10,
+      "permStatuses": {
+        "Certified": 10,
+        "Certified - Expired": 17,
+        "Denied": 2,
+        "Withdrawn": 2
+      },
+      "permTotal": 31
+    },
+    "reddit": {
+      "lcaCertified": 26,
+      "lcaStatuses": {
+        "Certified": 26,
+        "Certified - Withdrawn": 1
+      },
+      "lcaTotal": 27,
+      "matchedEntities": [
+        "Reddit, Inc."
+      ],
+      "permCertified": 20,
+      "permStatuses": {
+        "Certified": 20,
+        "Certified - Expired": 1
+      },
+      "permTotal": 21
+    },
+    "roblox": {
+      "lcaCertified": 50,
+      "lcaStatuses": {
+        "Certified": 50
+      },
+      "lcaTotal": 50,
+      "matchedEntities": [
+        "Roblox Corporation"
+      ],
+      "permCertified": 29,
+      "permStatuses": {
+        "Certified": 29,
+        "Certified - Expired": 19,
+        "Withdrawn": 1
+      },
+      "permTotal": 49
+    },
+    "salesforce": {
+      "lcaCertified": 386,
+      "lcaStatuses": {
+        "Certified": 386,
+        "Certified - Withdrawn": 59,
+        "Withdrawn": 7
+      },
+      "lcaTotal": 452,
+      "matchedEntities": [
+        "Salesforce, Inc."
+      ],
+      "permCertified": 547,
+      "permStatuses": {
+        "Certified": 547,
+        "Certified - Expired": 262,
+        "Denied": 1,
+        "Withdrawn": 4
+      },
+      "permTotal": 814
+    },
+    "scale": {
+      "lcaCertified": 9,
+      "lcaStatuses": {
+        "Certified": 9,
+        "Certified - Withdrawn": 3
+      },
+      "lcaTotal": 12,
+      "matchedEntities": [
+        "Scale AI, Inc."
+      ],
+      "permCertified": 3,
+      "permStatuses": {
+        "Certified": 3,
+        "Certified - Expired": 1,
+        "Withdrawn": 5
+      },
+      "permTotal": 9
+    },
+    "servicenow": {
+      "lcaCertified": 116,
+      "lcaStatuses": {
+        "Certified": 116
+      },
+      "lcaTotal": 116,
+      "matchedEntities": [
+        "ServiceNow, Inc."
+      ],
+      "permCertified": 171,
+      "permStatuses": {
+        "Certified": 171,
+        "Certified - Expired": 85,
+        "Withdrawn": 1
+      },
+      "permTotal": 257
+    },
+    "snowflake": {
+      "lcaCertified": 99,
+      "lcaStatuses": {
+        "Certified": 99,
+        "Certified - Withdrawn": 11,
+        "Withdrawn": 2
+      },
+      "lcaTotal": 112,
+      "matchedEntities": [
+        "Snowflake Inc."
+      ],
+      "permCertified": 77,
+      "permStatuses": {
+        "Certified": 77,
+        "Certified - Expired": 72,
+        "Withdrawn": 1
+      },
+      "permTotal": 150
+    },
+    "stripe": {
+      "lcaCertified": 58,
+      "lcaStatuses": {
+        "Certified": 58,
+        "Withdrawn": 2
+      },
+      "lcaTotal": 60,
+      "matchedEntities": [
+        "Stripe, Inc."
+      ],
+      "permCertified": 84,
+      "permStatuses": {
+        "Certified": 84,
+        "Certified - Expired": 86,
+        "Denied": 1,
+        "Withdrawn": 18
+      },
+      "permTotal": 189
+    },
+    "tesla": {
+      "lcaCertified": 309,
+      "lcaStatuses": {
+        "Certified": 309,
+        "Certified - Withdrawn": 48,
+        "Withdrawn": 3
+      },
+      "lcaTotal": 360,
+      "matchedEntities": [
+        "TESLA, INC.",
+        "Tesla, Inc."
+      ],
+      "permCertified": 284,
+      "permStatuses": {
+        "Certified": 284,
+        "Certified - Expired": 116,
+        "Withdrawn": 5
+      },
+      "permTotal": 405
+    },
+    "uber": {
+      "lcaCertified": 146,
+      "lcaStatuses": {
+        "Certified": 146
+      },
+      "lcaTotal": 146,
+      "matchedEntities": [
+        "Uber Technologies, Inc."
+      ],
+      "permCertified": 141,
+      "permStatuses": {
+        "Certified": 141,
+        "Certified - Expired": 386,
+        "Denied": 1,
+        "Withdrawn": 20
+      },
+      "permTotal": 548
+    },
+    "workday": {
+      "lcaCertified": 53,
+      "lcaStatuses": {
+        "Certified": 53
+      },
+      "lcaTotal": 53,
+      "matchedEntities": [
+        "WORKDAY, INC.",
+        "Workday, Inc",
+        "Workday, Inc."
+      ],
+      "permCertified": 100,
+      "permStatuses": {
+        "Certified": 100,
+        "Certified - Expired": 32,
+        "Denied": 1
+      },
+      "permTotal": 133
+    },
+    "xai": {
+      "lcaCertified": 15,
+      "lcaStatuses": {
+        "Certified": 15
+      },
+      "lcaTotal": 15,
+      "matchedEntities": [
+        "X. AI LLC",
+        "X.AI Corp.",
+        "X.AI LLC"
+      ],
+      "permCertified": 0,
+      "permStatuses": {},
+      "permTotal": 0
+    }
+  },
+  "fiscalYear": 2025,
+  "lcaSource": "https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/LCA_Disclosure_Data_FY2025_Q4.xlsx",
+  "method": "Exact normalized match against the reviewed legal-entity allowlist.",
+  "permSource": "https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/PERM_Disclosure_Data_FY2025_Q4.xlsx"
+};
