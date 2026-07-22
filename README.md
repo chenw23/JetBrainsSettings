@@ -31,6 +31,15 @@ Then open <http://localhost:4173>.
     U.S. Summer 2027 requisition was found.
   - **2027 unconfirmed**: the company is a target, but neither an explicit 2027
     internship nor a standing official intern program was verified.
+- A transparent company sorter:
+  - **Recommended**: confirmed 2027 evidence, then MSIM priority, immigration
+    evidence strength, and company name.
+  - Company A–Z, 2027 status, MSIM priority, and immigration evidence are also
+    available as explicit sort options.
+- A row-based company list and a second-level company detail view. Verified job
+  titles live in `data/verified-jobs.js`; companies can have multiple roles.
+  `startDate` and `endDate` fields are optional and are only rendered when the
+  official source provides them.
 - A conservative immigration-evidence model:
   - **Explicit policy**: only where the company’s own careers material explicitly
     says it sponsors visas / green cards for eligible roles.
@@ -44,6 +53,10 @@ Then open <http://localhost:4173>.
   search currently shows a San Jose `Student Researcher ... 2027 Start (BS/MS)`
   internship. That proves a U.S. 2027-start internship exists, but not that its
   start date is Summer 2027.
+- Current verified-job coverage is intentionally sparse: the site does not
+  manufacture role titles from generic internship landing pages. Companies
+  without a verified 2027 title show a clear empty state and link to the official
+  recruiting surface.
 
 ## Source methodology
 

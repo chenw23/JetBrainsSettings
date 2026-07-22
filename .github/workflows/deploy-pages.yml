@@ -37,6 +37,7 @@ jobs:
             data/dol-fy2025-snapshot.js \
             data/dol-fy2025-snapshot.json \
             data/employer-entities.json \
+            data/verified-jobs.js \
             _site/data/
 
       - name: Upload artifact

@@ -204,6 +204,19 @@
               <button class="filter-chip" data-filter="cycle" data-value="Unconfirmed" type="button">2027 unconfirmed</button>
             </div>
           </div>
+          <div class="filter-group filter-group-bottom" aria-label="Sort companies">
+            <label class="filter-label" for="sortSelect">SORT BY</label>
+            <div class="sort-control">
+              <select id="sortSelect">
+                <option value="Recommended">Recommended</option>
+                <option value="CompanyAZ">Company A–Z</option>
+                <option value="Cycle">2027 status</option>
+                <option value="Priority">MSIM priority</option>
+                <option value="Immigration">Immigration evidence</option>
+              </select>
+              <button class="sort-explain" id="sortExplainButton" type="button">How ranking works ↗</button>
+            </div>
+          </div>
         </div>
 
         <div class="radar-meta">
@@ -211,6 +224,14 @@
           <span class="meta-divider"></span>
           <button id="clearFilters" type="button">Reset filters</button>
           <span class="radar-legend"><i></i> Official career source linked</span>
+        </div>
+        <div class="company-list-head" aria-hidden="true">
+          <span># / Company</span>
+          <span>Role fit</span>
+          <span>2027 status</span>
+          <span>Immigration evidence</span>
+          <span>Jobs</span>
+          <span></span>
         </div>
         <div class="company-grid" id="companyGrid" aria-live="polite"></div>
       </section>
@@ -364,12 +385,15 @@
           <li><strong>Federal source for immigration mechanics.</strong> USCIS explains the H-1B process; DOL publishes LCA and PERM disclosure data. This site uses exact legal-entity matches from FY2025 only as historical evidence.</li>
           <li><strong>University source for student work authorization.</strong> UIUC ISSS controls CPT/OPT guidance for F-1 students.</li>
           <li><strong>No inferred sponsorship.</strong> “Posting-level” means verify the specific job and get confirmation from recruiting before relying on a pathway.</li>
+          <li><strong>Recommended sorting.</strong> Companies are ordered by explicit 2027 U.S. internship evidence, then MSIM priority, immigration-evidence strength, and company name. Use the sort menu to change this.</li>
+          <li><strong>Job-title threshold.</strong> Only official U.S. internship titles/details that explicitly reference 2027 appear in the verified-jobs section. Dates are shown only when the official source provides them.</li>
         </ol>
         <a class="button button-primary" href="#evidence" id="methodSourcesLink">Read the sources <span>↘</span></a>
       </div>
     </dialog>
 
     <script src="data/dol-fy2025-snapshot.js"></script>
+    <script src="data/verified-jobs.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

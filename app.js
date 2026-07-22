@@ -790,6 +790,7 @@ const sources = [
 ];
 
 const historicalFilings = window.DOL_FY2025_SNAPSHOT?.companies || {};
+const verifiedJobs = window.VERIFIED_2027_JOBS?.companies || {};
 const coreTargets = new Set([
   "google", "meta", "microsoft", "amazon", "apple", "nvidia", "databricks",
   "snowflake", "salesforce", "adobe", "servicenow", "uber", "doordash",
@@ -833,6 +834,7 @@ const state = {
   visa: "All",
   priority: "All",
   cycle: "All",
+  sort: "Recommended",
   query: "",
   saved: new Set(JSON.parse(localStorage.getItem("fieldwork27-saved") || "[]")),
 };
@@ -842,6 +844,7 @@ const resultsCount = document.querySelector("#resultsCount");
 const savedCount = document.querySelector("#savedCount");
 const savedButton = document.querySelector("#savedButton");
 const companySearch = document.querySelector("#companySearch");
+const sortSelect = document.querySelector("#sortSelect");
 const companyDialog = document.querySelector("#companyDialog");
 const dialogContent = document.querySelector("#dialogContent");
 const methodDialog = document.querySelector("#methodDialog");
@@ -881,34 +884,82 @@ function cycleClass(status) {
   return status.toLowerCase();
 }
 
-function companyCard(company) {
+const cycleRank = { Confirmed2027: 0, ProgramVerified: 1, Unconfirmed: 2 };
+const priorityRank = { Core: 0, Reach: 1, Monitor: 2 };
+const visaRank = { Explicit: 0, Posting: 1, Review: 2 };
+
+function jobsFor(companyId) {
+  return verifiedJobs[companyId] || [];
+}
+
+function compareCompanies(left, right) {
+  const byName = () => left.name.localeCompare(right.name, "en");
+  const compare = (first, second) => first - second;
+
+  if (state.sort === "CompanyAZ") return byName();
+  if (state.sort === "Cycle") {
+    return compare(cycleRank[left.cycleStatus], cycleRank[right.cycleStatus])
+      || compare(priorityRank[left.priority], priorityRank[right.priority])
+      || byName();
+  }
+  if (state.sort === "Priority") {
+    return compare(priorityRank[left.priority], priorityRank[right.priority])
+      || compare(cycleRank[left.cycleStatus], cycleRank[right.cycleStatus])
+      || byName();
+  }
+  if (state.sort === "Immigration") {
+    return compare(visaRank[left.visa], visaRank[right.visa])
+      || compare(priorityRank[left.priority], priorityRank[right.priority])
+      || byName();
+  }
+
+  const leftConfirmed = left.cycleStatus === "Confirmed2027" ? 0 : 1;
+  const rightConfirmed = right.cycleStatus === "Confirmed2027" ? 0 : 1;
+  return compare(leftConfirmed, rightConfirmed)
+    || compare(priorityRank[left.priority], priorityRank[right.priority])
+    || compare(cycleRank[left.cycleStatus], cycleRank[right.cycleStatus])
+    || compare(visaRank[left.visa], visaRank[right.visa])
+    || byName();
+}
+
+function companyCard(company, index) {
   const isSaved = state.saved.has(company.id);
+  const jobs = jobsFor(company.id);
   const roleTags = company.roles
-    .slice(0, 2)
+    .slice(0, 3)
     .map((role) => `<span class="role-tag">${role}</span>`)
     .join("");
   return `
     <article class="company-card">
-      <div class="company-card-top">
-        <span class="company-category">${company.category}</span>
+      <div class="company-identity">
+        <span class="company-rank">${String(index + 1).padStart(2, "0")}</span>
+        <div>
+          <span class="company-category">${company.category}</span>
+          <h3 class="company-name">${company.name}</h3>
+          <p class="company-description">${company.description}</p>
+        </div>
+      </div>
+      <div class="company-role-cell">
+        <span class="priority-badge ${priorityClass(company.priority)}">${company.priority}</span>
+        <div class="company-tags">${roleTags}</div>
+      </div>
+      <div class="company-cycle-cell">
+        <span class="cycle-badge ${cycleClass(company.cycleStatus)}"><i></i>${company.cycleTitle}</span>
+        <small>Checked ${company.checkedOn}</small>
+      </div>
+      <div class="company-evidence-cell">
+        <span class="visa-badge ${visaClass(company.visa)}">${company.visaTitle}</span>
+        <span class="filing-badge">${filingLabel(company.id)}</span>
+      </div>
+      <div class="company-job-cell">
+        <strong>${jobs.length ? `${jobs.length} verified` : "None verified"}</strong>
+        <small>${jobs.length ? "Official 2027 role" : "Open company for status"}</small>
+      </div>
+      <div class="company-actions">
         <button class="company-save ${isSaved ? "saved" : ""}" type="button" data-save="${company.id}" aria-label="${isSaved ? "Remove" : "Save"} ${company.name}">
           ${isSaved ? "✓" : "+"}
         </button>
-      </div>
-      <div class="company-status-row">
-        <span class="priority-badge ${priorityClass(company.priority)}">${company.priority}</span>
-        <span class="cycle-badge ${cycleClass(company.cycleStatus)}"><i></i>${company.cycleTitle}</span>
-      </div>
-      <h3 class="company-name">${company.name}</h3>
-      <p class="company-description">${company.description}</p>
-      <div class="company-tags">${roleTags}</div>
-      <div class="company-evidence-row">
-        <span class="filing-badge">${filingLabel(company.id)}</span>
-        <span class="visa-badge ${visaClass(company.visa)}">${company.visaTitle}</span>
-      </div>
-      <div class="company-card-footer">
-        <span>${company.sourceLabel}</span>
-        <button class="card-link" type="button" data-details="${company.id}">View evidence ↗</button>
+        <button class="card-link" type="button" data-details="${company.id}">Open ↗</button>
       </div>
     </article>
   `;
@@ -918,6 +969,7 @@ function filteredCompanies() {
   const query = state.query.trim().toLowerCase();
 
   return companies.filter((company) => {
+    const jobText = jobsFor(company.id).map((job) => job.title).join(" ");
     const roleMatches = state.role === "All" || company.roles.includes(state.role);
     const visaMatches = state.visa === "All" || company.visa === state.visa;
     const priorityMatches = state.priority === "All" || company.priority === state.priority;
@@ -928,11 +980,12 @@ function filteredCompanies() {
       company.description,
       company.roles.join(" "),
       company.hubs,
+      jobText,
     ]
       .join(" ")
       .toLowerCase();
     return roleMatches && visaMatches && priorityMatches && cycleMatches && (!query || haystack.includes(query));
-  });
+  }).sort(compareCompanies);
 }
 
 function renderCompanies() {
@@ -977,6 +1030,35 @@ function openCompanyDetails(id) {
   const company = companies.find((item) => item.id === id);
   if (!company) return;
   const filing = historicalFilings[company.id];
+  const jobs = jobsFor(company.id);
+  const jobsMarkup = jobs.length
+    ? jobs.map((job) => `
+      <article class="verified-job">
+        <div class="verified-job-head">
+          <div>
+            <span class="detail-label">${escapeHTML(job.employmentType)}</span>
+            <h4>${escapeHTML(job.title)}</h4>
+          </div>
+          <a href="${job.source}" target="_blank" rel="noreferrer">Official role ↗</a>
+        </div>
+        <dl>
+          <div><dt>Location</dt><dd>${escapeHTML(job.location)}</dd></div>
+          <div><dt>Team</dt><dd>${escapeHTML(job.team)}</dd></div>
+          ${job.startDate ? `<div><dt>Start</dt><dd>${escapeHTML(job.startDate)}</dd></div>` : ""}
+          ${job.endDate ? `<div><dt>End</dt><dd>${escapeHTML(job.endDate)}</dd></div>` : ""}
+        </dl>
+        ${job.dateNote ? `<p class="job-date-note">${escapeHTML(job.dateNote)}</p>` : ""}
+      </article>
+    `).join("")
+    : `
+      <div class="no-verified-jobs">
+        <strong>No verified U.S. 2027 internship title in this review.</strong>
+        <p>${company.cycleStatus === "ProgramVerified"
+          ? "The company has an official internship or early-career program, but a specific U.S. 2027 role was not confirmed."
+          : "Monitor the official careers page; this does not mean the company will not open roles later."}</p>
+        <a href="${company.source}" target="_blank" rel="noreferrer">${company.sourceLabel} ↗</a>
+      </div>
+    `;
   const hasVerifiedFilingEntity = filing && (filing.lcaTotal || filing.permTotal);
   const filingMarkup = hasVerifiedFilingEntity
     ? `
@@ -1025,6 +1107,13 @@ function openCompanyDetails(id) {
       <h3>2027 official-posting check</h3>
       <p>${company.cycleDetail}</p>
       <p class="cycle-audit-note">Checked ${company.checkedOn}. <a href="${company.cycleSource}" target="_blank" rel="noreferrer">Open official evidence ↗</a></p>
+    </section>
+    <section class="dialog-section jobs-section">
+      <div class="jobs-section-head">
+        <h3>Verified job titles</h3>
+        <span>${jobs.length} role${jobs.length === 1 ? "" : "s"}</span>
+      </div>
+      ${jobsMarkup}
     </section>
     <section class="dialog-section">
       <h3>Work authorization / future sponsorship</h3>
@@ -1076,6 +1165,15 @@ document.querySelector("#cycleFilters").addEventListener("click", (event) => {
   if (button) setActiveChip(button.dataset.filter, button.dataset.value);
 });
 
+sortSelect.addEventListener("change", (event) => {
+  state.sort = event.target.value;
+  renderCompanies();
+});
+
+document.querySelector("#sortExplainButton").addEventListener("click", () => {
+  methodDialog.showModal();
+});
+
 companySearch.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderCompanies();
@@ -1101,8 +1199,10 @@ document.querySelector("#clearFilters").addEventListener("click", () => {
   state.visa = "All";
   state.priority = "All";
   state.cycle = "All";
+  state.sort = "Recommended";
   state.query = "";
   companySearch.value = "";
+  sortSelect.value = "Recommended";
   document.querySelectorAll(".filter-chip").forEach((button) => {
     button.classList.toggle("active", button.dataset.value === "All");
   });
@@ -1121,9 +1221,12 @@ savedButton.addEventListener("click", () => {
   state.visa = "All";
   state.priority = "All";
   state.cycle = "All";
+  state.sort = "Recommended";
   companySearch.value = "";
+  sortSelect.value = "Recommended";
   companyGrid.innerHTML = companies
     .filter((company) => state.saved.has(company.id))
+    .sort(compareCompanies)
     .map(companyCard)
     .join("");
   resultsCount.textContent = `${state.saved.size} saved`;
