@@ -33,7 +33,11 @@ jobs:
           mkdir -p _site/assets _site/data
           cp index.html styles.css app.js .nojekyll _site/
           cp -R assets/. _site/assets/
-          cp data/dol-fy2025-snapshot.js _site/data/
+          cp \
+            data/dol-fy2025-snapshot.js \
+            data/dol-fy2025-snapshot.json \
+            data/employer-entities.json \
+            _site/data/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
