@@ -50,13 +50,28 @@ Then open <http://localhost:4173>.
 - UIUC MSIM/STEM and CPT sources, USCIS CPT/STEM OPT/H-1B sources, and
   reproducible DOL LCA/PERM evidence.
 - ByteDance/TikTok is included as one employer group. The official ByteDance job
-  search currently shows a San Jose `Student Researcher ... 2027 Start (BS/MS)`
-  internship. That proves a U.S. 2027-start internship exists, but not that its
-  start date is Summer 2027.
+  list currently identifies separate San Jose 2027-start student-researcher
+  internships for LLM (BS/MS) and Multimodal Interaction and World Model (PhD).
+  Exact internship dates and standalone detail URLs were not exposed in the
+  indexed official list.
+- Google Careers currently contains two official U.S. early-consideration roles:
+  `Software Engineering Intern, MS, Summer 2027` and
+  `Software Engineering Intern, BS, Summer 2027`. Google states a 12–14 week
+  duration and an anticipated application window through July 24, 2026, which
+  may close earlier if projects fill.
 - Current verified-job coverage is intentionally sparse: the site does not
   manufacture role titles from generic internship landing pages. Companies
   without a verified 2027 title show a clear empty state and link to the official
   recruiting surface.
+
+## SEO and discovery
+
+- Canonical, Open Graph, Twitter Card, robots, and large-image-preview metadata.
+- `WebSite`, `Dataset`, and verified internship `ItemList` JSON-LD. The
+  aggregator does not publish single-job `JobPosting` rich-result markup.
+- `robots.txt`, `sitemap.xml`, and local 1200×630 social-preview SVG/PNG assets.
+- The published job structured data is generated from `data/verified-jobs.js`, so
+  search metadata and the visible role list share the same source.
 
 ## Source methodology
 

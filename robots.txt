@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chenw23.github.io/JetBrainsSettings/sitemap.xml

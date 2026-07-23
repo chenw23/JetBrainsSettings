@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Fieldwork 27</title>
+  <desc id="desc">Verified 2027 U.S. technology internship radar for UIUC MSIM students</desc>
+  <rect width="1200" height="630" fill="#f3f6f5"/>
+  <rect x="60" y="56" width="1080" height="518" rx="10" fill="#025b55"/>
+  <circle cx="1020" cy="150" r="210" fill="none" stroke="#c6e85f" stroke-opacity=".35" stroke-width="2"/>
+  <circle cx="1020" cy="150" r="120" fill="#c6e85f"/>
+  <text x="1020" y="166" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#025b55">F/27</text>
+  <text x="112" y="138" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#c6e85f">SOURCE-FIRST INTERNSHIP INTELLIGENCE</text>
+  <text x="108" y="262" font-family="Georgia, serif" font-size="78" font-weight="700" fill="#ffffff">2027 U.S. Tech</text>
+  <text x="108" y="350" font-family="Georgia, serif" font-size="78" font-style="italic" fill="#c6e85f">Internship Radar</text>
+  <text x="112" y="425" font-family="Arial, sans-serif" font-size="28" fill="#c4dcd8">Official job titles · application windows · CPT · H-1B/PERM evidence</text>
+  <line x1="112" y1="478" x2="1088" y2="478" stroke="#ffffff" stroke-opacity=".24"/>
+  <text x="112" y="530" font-family="Arial, sans-serif" font-size="24" fill="#ffffff">Built for a UIUC MSIM Summer 2027 search</text>
+</svg>

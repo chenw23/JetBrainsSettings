@@ -46,6 +46,7 @@ const companies = [
     visaDetail: "The public job search is the authoritative place to inspect eligibility questions. Sponsorship cannot be inferred from company scale or a previous employer filing; ask about the specific internship and conversion path.",
     visaSource: "https://www.google.com/about/careers/applications/jobs/results/",
     prep: ["Practice product + analytics cases", "Prepare SQL and coding evidence", "Target both Google and DeepMind listings"],
+    cycleSource: "https://www.google.com/about/careers/applications/jobs/results/?employment_type=INTERN&location=United%20States&q=2027",
   },
   {
     id: "meta",
@@ -718,11 +719,7 @@ const companies = [
     visaDetail: "FY2025 DOL data shows historical LCA and PERM activity under ByteDance Inc., TikTok Inc., and TikTok U.S. Data Security Inc. That does not guarantee sponsorship for a specific internship; confirm the employing entity and policy on the exact role.",
     visaSource: "https://jobs.bytedance.com/en/mobile/students/trends?index=1",
     prep: ["Search both ByteDance and TikTok portals", "Prioritize data/recommendation and AI product work", "Confirm Summer dates and employing entity before applying"],
-    cycleStatus: "Confirmed2027",
-    cycleTitle: "2027 U.S. role found",
-    cycleDetail: "Official ByteDance search currently lists a San Jose Student Researcher internship titled “Multimodal Interaction and World Model - Seed — 2027 Start (BS/MS).” The title confirms a 2027-start U.S. internship, but does not by itself prove a Summer 2027 start date.",
     cycleSource: "https://jobs.bytedance.com/en/mobile/job?offset=0",
-    checkedOn: "2026-07-22",
   },
 ];
 
@@ -815,7 +812,14 @@ companies.forEach((company) => {
     : reachTargets.has(company.id)
       ? "Reach"
       : "Monitor";
-  if (!company.cycleStatus) {
+  const companyJobs = verifiedJobs[company.id] || [];
+  if (companyJobs.length) {
+    company.cycleStatus = "Confirmed2027";
+    company.cycleTitle = `${companyJobs.length} verified 2027 role${companyJobs.length === 1 ? "" : "s"}`;
+    company.cycleDetail = `${companyJobs.length} official U.S. internship title${companyJobs.length === 1 ? "" : "s"} explicitly reference 2027. Open the verified-jobs section for exact titles, degree level, locations, and available date information.`;
+    company.cycleSource = companyJobs[0].source;
+    company.checkedOn = window.VERIFIED_2027_JOBS?.checkedOn || "2026-07-23";
+  } else {
     const programVerified = verifiedProgramTargets.has(company.id);
     company.cycleStatus = programVerified ? "ProgramVerified" : "Unconfirmed";
     company.cycleTitle = programVerified
@@ -825,7 +829,7 @@ companies.forEach((company) => {
       ? "An official student, internship, or early-career program is available, but this review did not find an explicit U.S. Summer 2027 requisition."
       : "The official recruiting surface is valid, but this review did not find an explicit U.S. Summer 2027 internship requisition or a standing student program."
     company.cycleSource = company.source;
-    company.checkedOn = "2026-07-22";
+    company.checkedOn = window.VERIFIED_2027_JOBS?.checkedOn || "2026-07-23";
   }
 });
 
@@ -890,6 +894,47 @@ const visaRank = { Explicit: 0, Posting: 1, Review: 2 };
 
 function jobsFor(companyId) {
   return verifiedJobs[companyId] || [];
+}
+
+function renderStructuredJobData() {
+  const jobItems = companies.flatMap((company) =>
+    jobsFor(company.id).map((job) => {
+      const posting = {
+        "@type": "Thing",
+        name: job.title,
+        description: `${job.title}. ${job.dateNote || ""}`.trim(),
+        url: job.source,
+        additionalType: "https://schema.org/Internship",
+        provider: {
+          "@type": "Organization",
+          name: company.name,
+          sameAs: company.source,
+        },
+        identifier: {
+          "@type": "PropertyValue",
+          name: company.name,
+          value: job.id,
+        },
+      };
+      return posting;
+    }),
+  );
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = "jobStructuredData";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Verified 2027 U.S. technology internships",
+    numberOfItems: jobItems.length,
+    itemListElement: jobItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item,
+    })),
+  });
+  document.head.appendChild(script);
 }
 
 function compareCompanies(left, right) {
@@ -1046,6 +1091,9 @@ function openCompanyDetails(id) {
           <div><dt>Team</dt><dd>${escapeHTML(job.team)}</dd></div>
           ${job.startDate ? `<div><dt>Start</dt><dd>${escapeHTML(job.startDate)}</dd></div>` : ""}
           ${job.endDate ? `<div><dt>End</dt><dd>${escapeHTML(job.endDate)}</dd></div>` : ""}
+          ${job.applicationOpenDate ? `<div><dt>Applications open</dt><dd>${escapeHTML(job.applicationOpenDate)}</dd></div>` : ""}
+          ${job.applicationCloseDate ? `<div><dt>Anticipated close</dt><dd>${escapeHTML(job.applicationCloseDate)}</dd></div>` : ""}
+          ${job.duration ? `<div><dt>Duration</dt><dd>${escapeHTML(job.duration)}</dd></div>` : ""}
         </dl>
         ${job.dateNote ? `<p class="job-date-note">${escapeHTML(job.dateNote)}</p>` : ""}
       </article>
@@ -1096,12 +1144,13 @@ function openCompanyDetails(id) {
       <div><span class="detail-label">Target priority</span><strong>${company.priority}</strong></div>
       <div><span class="detail-label">2027 recruiting status</span><strong>${company.cycleTitle}</strong></div>
       <div><span class="detail-label">Immigration status</span><strong>${company.visaTitle}</strong></div>
-      <div><span class="detail-label">Likely hubs</span><strong>${company.hubs}</strong></div>
-      <div><span class="detail-label">Source standard</span><strong>Official career surface + exact posting</strong></div>
+      <div><span class="detail-label">Representative hubs</span><strong>${company.hubs}</strong><small>Planning summary; verify the exact role location.</small></div>
+      <div><span class="detail-label">Source standard</span><strong>Official career surface + exact verified posting where available</strong></div>
     </div>
     <section class="dialog-section">
-      <h3>Why it belongs on the list</h3>
+      <h3>MSIM fit analysis</h3>
       <p>${company.fit}</p>
+      <p class="analysis-note">This section is application-planning analysis, not text quoted from a live job description.</p>
     </section>
     <section class="dialog-section">
       <h3>2027 official-posting check</h3>
@@ -1259,6 +1308,7 @@ document.addEventListener("keydown", (event) => {
 renderSources();
 updateSavedUI();
 renderCompanies();
+renderStructuredJobData();
 document.querySelectorAll("[data-company-total]").forEach((element) => {
   element.textContent = companies.length;
 });
